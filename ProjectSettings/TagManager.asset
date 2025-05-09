@@ -7,6 +7,7 @@ TagManager:
   - BlendPlane0
   - BlendPlane1
   - GhostWall
+  - OutsideWall
   layers:
   - Default
   - TransparentFX
