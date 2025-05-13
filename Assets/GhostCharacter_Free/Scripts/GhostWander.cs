@@ -1,48 +1,26 @@
 using UnityEngine;
 
-public class GhostWander : MonoBehaviour
+public class GemSpawner : MonoBehaviour
 {
-    public Vector3 areaSize = new Vector3(18, 0, 18); // Tamaño del área donde se moverá
-    public float speed = 2f;
-    public float waitTime = 2f;
+    public GameObject gemPrefab;
+    public float spawnInterval = 2f;
 
-    private Vector3 targetPosition;
-    private bool isMoving = false;
+    public Vector2 minBounds = new Vector2(-40, -40); // límites de la casa
+    public Vector2 maxBounds = new Vector2(40, 40);
 
     void Start()
     {
-        SetNewTarget();
+        InvokeRepeating("SpawnGem", 2f, spawnInterval);
     }
 
-    void Update()
+    void SpawnGem()
     {
-        if (isMoving)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
-            {
-                isMoving = false;
-                Invoke(nameof(SetNewTarget), waitTime);
-            }
-        }
-    }
-
-    void SetNewTarget()
-    {
-        Vector3 randomOffset = new Vector3(
-            Random.Range(-areaSize.x / 2, areaSize.x / 2),
-            0,
-            Random.Range(-areaSize.z / 2, areaSize.z / 2)
+        Vector3 randomPos = new Vector3(
+            Random.Range(minBounds.x, maxBounds.x),
+            0.5f, // altura de aparición
+            Random.Range(minBounds.y, maxBounds.y)
         );
 
-        targetPosition = transform.position + randomOffset;
-        isMoving = true;
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(transform.position, areaSize);
+        Instantiate(gemPrefab, randomPos, Quaternion.identity);
     }
 }
