@@ -8,6 +8,7 @@ TagManager:
   - BlendPlane1
   - GhostWall
   - OutsideWall
+  - PlayerLight
   layers:
   - Default
   - TransparentFX
