@@ -8,8 +8,8 @@ public class ghostSpawner : MonoBehaviour
     public GameObject ghostPrefab;
     public GameObject specialGhostPrefab;
     public List<Transform> ghostSpawnPositions = new List<Transform>();
-    public float timeBetweenSpawns = 5f;
-    public float specialGhostSpawnInterval = 20f;
+    public float timeBetweenSpawns = 10f;
+    public float specialGhostSpawnInterval = 30f;
 
     private List<GameObject> ghostList = new List<GameObject>();
     private List<GameObject> specialGhostList = new List<GameObject>();

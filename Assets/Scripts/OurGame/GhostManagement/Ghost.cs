@@ -1,10 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    public float wanderSpeed = 2.5f;        // M�s r�pido
-    public float wanderRadius = 4f;         // M�s amplio
+    public float wanderSpeed = 2.5f;        // Más rápido
+    public float wanderRadius = 4f;         // Más amplio
     public float fadeDuration = 1.5f;
 
     private Vector3 targetPosition;
@@ -22,37 +22,58 @@ public class Ghost : MonoBehaviour
     public AudioClip spawnSound;
     public AudioClip deathSound;
 
-    private Vector3 lastDirection; // Para reflejar direcci�n al chocar con GhostWall
+    private static readonly int IdleState = Animator.StringToHash("Base Layer.idle");
+    private static readonly int MoveState = Animator.StringToHash("Base Layer.move");
+    private static readonly int SurprisedState = Animator.StringToHash("Base Layer.surprised");
+    private static readonly int AttackState = Animator.StringToHash("Base Layer.attack_shift");
+    private static readonly int DissolveState = Animator.StringToHash("Base Layer.dissolve");
+    private static readonly int AttackTag = Animator.StringToHash("Attack");
+
+    private Animator anim;
+
+
+    private Vector3 lastDirection; // Para reflejar dirección al chocar con GhostWall
 
     void Start()
     {
         ghostRenderer = GetComponentInChildren<Renderer>();
         SetNewTargetPosition();
         StartCoroutine(Wander());
+        anim = GetComponent<Animator>();
+
 
         if (spawnSound != null)
         {
             AudioSource.PlayClipAtPoint(spawnSound, transform.position);
         }
+
+        anim.CrossFade(IdleState, 0.1f, 0, 0);
     }
 
     void Update()
     {
         if (!isFading)
         {
-            Vector3 direction = targetPosition - transform.position;
-            lastDirection = direction.normalized;
+            MoveGhost();
+        }
+    }
 
-            if (direction.magnitude > 0.1f)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, wanderSpeed * Time.deltaTime);
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
-            }
-            else
-            {
-                SetNewTargetPosition();
-            }
+    void MoveGhost()
+    {
+        Vector3 direction = targetPosition - transform.position;
+        lastDirection = direction.normalized;
+
+        if (direction.magnitude > 0.1f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, wanderSpeed * Time.deltaTime);
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+            anim.CrossFade(MoveState, 0.1f);
+
+        }
+        else
+        {
+            SetNewTargetPosition();
         }
     }
 
@@ -97,6 +118,11 @@ public class Ghost : MonoBehaviour
     private IEnumerator FadeAndDie()
     {
         isFading = true;
+        anim.CrossFade(SurprisedState, 0.1f);
+        yield return new WaitForSeconds(0.5f); // tiempo para mostrar la reacción
+
+        anim.CrossFade(DissolveState, 0.1f);
+
         float elapsed = 0f;
         Material mat = ghostRenderer.material;
         Color originalColor = mat.color;
@@ -151,7 +177,7 @@ public class Ghost : MonoBehaviour
     {
         if (other.CompareTag("GhostWall"))
         {
-            // Rebote simple: mover en direcci�n opuesta
+            // Rebote simple: mover en dirección opuesta
             Vector3 rebound = -lastDirection.normalized * wanderRadius;
             targetPosition = transform.position + rebound;
         }
