@@ -5,7 +5,7 @@ public class Ghost : MonoBehaviour
 {
     public float wanderSpeed = 2.5f;        // Más rápido
     public float wanderRadius = 4f;         // Más amplio
-    public float fadeDuration = 1.5f;
+    public float fadeDuration = 1f;
 
     private Vector3 targetPosition;
     private Renderer ghostRenderer;
@@ -33,6 +33,8 @@ public class Ghost : MonoBehaviour
 
 
     private Vector3 lastDirection; // Para reflejar dirección al chocar con GhostWall
+
+
 
     void Start()
     {
@@ -135,6 +137,11 @@ public class Ghost : MonoBehaviour
             yield return null;
         }
 
+        if (deathVFXPrefab != null)
+        {
+            Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
+        }
+
         if (killer != null)
         {
             GameStateManager.Instance.AddScore(killer, numPoints);
@@ -150,10 +157,6 @@ public class Ghost : MonoBehaviour
             AudioSource.PlayClipAtPoint(deathSound, transform.position);
         }
 
-        if (deathVFXPrefab != null)
-        {
-            Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
-        }
 
         Destroy(gameObject);
     }
