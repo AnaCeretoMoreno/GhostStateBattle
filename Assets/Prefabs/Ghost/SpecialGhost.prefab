@@ -899,8 +899,8 @@ MonoBehaviour:
   fadeDuration: 2
   numPoints: 3
   deathVFXPrefab: {fileID: 2859023077521363233, guid: bfc42e73d621f2a44a8b90755acfa58e, type: 3}
-  spawnSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  spawnSound: {fileID: 8300000, guid: 564304a020d5d764e9789fb6ca31fec7, type: 3}
+  deathSound: {fileID: 8300000, guid: 3642dff4c00bfd349b46465c3c9daf58, type: 3}
 --- !u!1 &9035506126409674760
 GameObject:
   m_ObjectHideFlags: 0

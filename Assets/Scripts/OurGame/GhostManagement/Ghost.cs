@@ -34,8 +34,6 @@ public class Ghost : MonoBehaviour
 
     private Vector3 lastDirection; // Para reflejar dirección al chocar con GhostWall
 
-
-
     void Start()
     {
         ghostRenderer = GetComponentInChildren<Renderer>();
@@ -43,10 +41,9 @@ public class Ghost : MonoBehaviour
         StartCoroutine(Wander());
         anim = GetComponent<Animator>();
 
-
         if (spawnSound != null)
         {
-            AudioSource.PlayClipAtPoint(spawnSound, transform.position);
+            AudioSource.PlayClipAtPoint(spawnSound, transform.position, 100f);
         }
 
         anim.CrossFade(IdleState, 0.1f, 0, 0);
@@ -154,7 +151,7 @@ public class Ghost : MonoBehaviour
 
         if (deathSound != null)
         {
-            AudioSource.PlayClipAtPoint(deathSound, transform.position);
+            AudioSource.PlayClipAtPoint(deathSound, transform.position, 100f);
         }
 
 
