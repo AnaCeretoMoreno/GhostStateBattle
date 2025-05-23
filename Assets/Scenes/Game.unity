@@ -2618,7 +2618,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1911
+    m_Bits: 887
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2642,9 +2642,9 @@ GameObject:
   - component: {fileID: 355760352}
   - component: {fileID: 355760351}
   - component: {fileID: 355760350}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Wall_4
-  m_TagString: InsideWall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3433,9 +3433,9 @@ GameObject:
   - component: {fileID: 568699867}
   - component: {fileID: 568699866}
   - component: {fileID: 568699865}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Wall_3
-  m_TagString: InsideWall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3865,7 +3865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   calibrationUI: {fileID: 220600117}
   trackingInterface: {fileID: 220600112}
-  enableTracking: 1
+  enableTracking: 0
   numberOfPlayers: 2
   numberOfBaseStations: 4
   enableRotation: 0
@@ -5202,9 +5202,9 @@ GameObject:
   - component: {fileID: 787611834}
   - component: {fileID: 787611833}
   - component: {fileID: 787611832}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Wall_1
-  m_TagString: InsideWall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6559,9 +6559,9 @@ GameObject:
   - component: {fileID: 1019900655}
   - component: {fileID: 1019900654}
   - component: {fileID: 1019900653}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Wall_5
-  m_TagString: InsideWall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8488,9 +8488,7 @@ GameObject:
   - component: {fileID: 1440896348}
   - component: {fileID: 1440896352}
   - component: {fileID: 1440896353}
-  - component: {fileID: 1440896354}
-  - component: {fileID: 1440896355}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -8600,34 +8598,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
---- !u!114 &1440896354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440896347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2f2e2a843590b641a7192d80997cf2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!54 &1440896355
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440896347}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1448092806
 GameObject:
   m_ObjectHideFlags: 0
@@ -8960,9 +8930,7 @@ GameObject:
   - component: {fileID: 1471923277}
   - component: {fileID: 1471923276}
   - component: {fileID: 1471923280}
-  - component: {fileID: 1471923281}
-  - component: {fileID: 1471923282}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -9059,34 +9027,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   q: {x: 0, y: 0, z: 0, w: 0}
   manual: 0
---- !u!114 &1471923281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471923275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2f2e2a843590b641a7192d80997cf2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!54 &1471923282
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471923275}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1480790853
 GameObject:
   m_ObjectHideFlags: 0
@@ -11270,9 +11210,9 @@ GameObject:
   - component: {fileID: 1788924771}
   - component: {fileID: 1788924770}
   - component: {fileID: 1788924769}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Wall_2
-  m_TagString: InsideWall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13195,7 +13135,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1975
+    m_Bits: 951
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 1
@@ -13719,9 +13659,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2111610562}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Inside Walls
-  m_TagString: InsideWall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
