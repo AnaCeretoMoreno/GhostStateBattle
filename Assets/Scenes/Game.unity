@@ -2964,6 +2964,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6382812501242762569, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
   m_PrefabInstance: {fileID: 6382812500833611561}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &425815122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6382812499995255527, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+  m_PrefabInstance: {fileID: 6382812500833611561}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &447547346 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3892886123248917117, guid: 9bb0df76d9ae7cf4c8821bed8e5f917b, type: 3}
@@ -8716,7 +8721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8beb559e2274b0e4f8cd11a3e4475163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreUI: {fileID: 481624631}
+  scoreUI: {fileID: 425815122}
   player1ScoreText: {fileID: 2036503435}
   player2ScoreText: {fileID: 2005589647}
   gameOverWindow: {fileID: 409172576}
