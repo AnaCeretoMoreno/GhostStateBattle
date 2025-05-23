@@ -50,6 +50,44 @@ public class GameStateManager : MonoBehaviour
 
     public void AddScore(GameObject player, int amount)
     {
+    Debug.Log("AddScore llamado. Jugador: " + player.name + " | Puntos: " + amount);
+
+    if (player == player1)
+    {
+        player1Score += amount;
+        Debug.Log("¡Puntos sumados a Player1! Total: " + player1Score);
+        UIManager.Instance.UpdatePlayer1Score(player1Score);
+    }
+    else if (player == player2)
+    {
+        player2Score += amount;
+        Debug.Log("¡Puntos sumados a Player2! Total: " + player2Score);
+        UIManager.Instance.UpdatePlayer2Score(player2Score);
+    }
+    else
+    {
+        Debug.LogWarning("El jugador " + player.name + " no está asignado como player1 ni player2.");
+    }
+
+
+    /*    Debug.Log("AddScore llamado. Jugador: " + player.name + " | Puntos: " + amount);
+
+    if (player == player1)
+    {
+        player1Score += amount;
+        Debug.Log("¡Puntos sumados a Player1! Total: " + player1Score);
+        UIManager.Instance.UpdatePlayer1Score(player1Score);
+    }
+    else if (player == player2)
+    {
+        player2Score += amount;
+        Debug.Log("¡Puntos sumados a Player2! Total: " + player2Score);
+        UIManager.Instance.UpdatePlayer2Score(player2Score);
+    }
+    else
+    {
+        Debug.LogWarning("El jugador " + player.name + " no está asignado como player1 ni player2.");
+    }
         if (player == player1)
         {
             player1Score += amount;
@@ -59,7 +97,7 @@ public class GameStateManager : MonoBehaviour
         {
             player2Score += amount;
             UIManager.Instance.UpdatePlayer2Score(player2Score);
-        }
+        }*/
     }
 
     private void EndGame()
