@@ -18,16 +18,16 @@ public class StartGame : MonoBehaviour
     {
         if (player1OnPlatform && player2OnPlatform)
         {
-            Debug.Log("Both players inside");
+            //Debug.Log("Both players inside");
             if (!countdownStarted)
             {
-                Debug.Log("Start countdown");
+                //Debug.Log("Start countdown");
                 countdownStarted = true;
                 timer = 0f;
             }
 
             timer += Time.deltaTime;
-            Debug.Log(timer);
+            //Debug.Log(timer);
 
             if (timer >= requiredTime)
             {
@@ -43,15 +43,15 @@ public class StartGame : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter is " + other.gameObject.name);
+        //Debug.Log("OnTriggerEnter is " + other.gameObject.name);
         if (other.gameObject == player1)
         {
-            Debug.Log("Player 1 enters");
+            //Debug.Log("Player 1 enters");
             player1OnPlatform = true;
         }
         else if (other.gameObject == player2)
         {
-            Debug.Log("Player 2 enters");
+            //Debug.Log("Player 2 enters");
             player2OnPlatform = true;
         }
     }
@@ -60,12 +60,12 @@ public class StartGame : MonoBehaviour
     {
         if (other.gameObject == player1)
         {
-            Debug.Log("Player 1 exits");
+            //Debug.Log("Player 1 exits");
             player1OnPlatform = false;
         }
         else if (other.gameObject == player2)
         {
-            Debug.Log("Player 2 exits");
+            //Debug.Log("Player 2 exits");
             player2OnPlatform = false;
         }
     }

@@ -23,10 +23,5 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(h, 0, v).normalized * moveSpeed * Time.deltaTime;
         transform.Translate(movement, Space.World);
 
-        // Solo para debug: detectar cuando sueltas las teclas
-        if (Input.GetKeyUp(KeyCode.LeftArrow)) Debug.Log("Left Arrow released");
-        if (Input.GetKeyUp(KeyCode.RightArrow)) Debug.Log("Right Arrow released");
-        if (Input.GetKeyUp(KeyCode.UpArrow)) Debug.Log("Up Arrow released");
-        if (Input.GetKeyUp(KeyCode.DownArrow)) Debug.Log("Down Arrow released");
     }
 }
