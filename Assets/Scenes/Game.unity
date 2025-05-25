@@ -3798,7 +3798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   calibrationUI: {fileID: 220600117}
   trackingInterface: {fileID: 220600112}
-  enableTracking: 0
+  enableTracking: 1
   numberOfPlayers: 2
   numberOfBaseStations: 4
   enableRotation: 0
@@ -3837,7 +3837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &627950473
 Transform:
   m_ObjectHideFlags: 0
@@ -6655,7 +6655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScore: 30
   player1: {fileID: 1440896347}
-  player2: {fileID: 627950472}
+  player2: {fileID: 1471923275}
 --- !u!4 &1046383620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7067593843637656600, guid: e282bff0336242d4d9a35fcae756ece4, type: 3}
@@ -8736,7 +8736,6 @@ GameObject:
   - component: {fileID: 1471923277}
   - component: {fileID: 1471923276}
   - component: {fileID: 1471923280}
-  - component: {fileID: 1471923281}
   - component: {fileID: 1471923282}
   - component: {fileID: 1471923283}
   m_Layer: 0
@@ -8745,7 +8744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1471923276
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8836,18 +8835,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   q: {x: 0, y: 0, z: 0, w: 0}
   manual: 0
---- !u!114 &1471923281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471923275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2f2e2a843590b641a7192d80997cf2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1471923282
 Rigidbody:
   m_ObjectHideFlags: 0
