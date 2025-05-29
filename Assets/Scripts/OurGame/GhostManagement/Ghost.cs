@@ -19,8 +19,7 @@ public class Ghost : MonoBehaviour
     public int numPoints = 1;
 
     public GameObject deathVFXPrefab;
-    public AudioClip spawnSound;
-    public AudioClip deathSound;
+    AudioManager audioManager;
 
     private static readonly int IdleState = Animator.StringToHash("Base Layer.idle");
     private static readonly int MoveState = Animator.StringToHash("Base Layer.move");
@@ -34,18 +33,18 @@ public class Ghost : MonoBehaviour
 
     private Vector3 lastDirection; // Para reflejar dirección al chocar con GhostWall
 
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     void Start()
     {
         ghostRenderer = GetComponentInChildren<Renderer>();
         SetNewTargetPosition();
         StartCoroutine(Wander());
         anim = GetComponent<Animator>();
-
-        if (spawnSound != null)
-        {
-            AudioSource.PlayClipAtPoint(spawnSound, transform.position, 100f);
-        }
-
+        audioManager.PlaySFX(audioManager.nomal_spawn);
         anim.CrossFade(IdleState, 0.1f, 0, 0);
     }
 
@@ -149,11 +148,7 @@ public class Ghost : MonoBehaviour
             ghostSpawner.RemoveGhostFromList(gameObject);
         }
 
-        if (deathSound != null)
-        {
-            AudioSource.PlayClipAtPoint(deathSound, transform.position, 100f);
-        }
-
+        audioManager.PlaySFX(audioManager.normal_death);
 
         Destroy(gameObject);
     }
