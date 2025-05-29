@@ -10,7 +10,7 @@ public class GameStateManager : MonoBehaviour
     private int player1Score = 0;
     private int player2Score = 0;
 
-    public int winScore = 30;
+    public int winScore = 20;
 
     public GameObject player1;
     public GameObject player2;

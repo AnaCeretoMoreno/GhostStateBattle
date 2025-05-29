@@ -14125,6 +14125,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6382812500671720771, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_text
+      value: 'The House is for: '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812500671720771, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_fontSize
+      value: 22.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
 --- !u!1001 &7067593842997596188
