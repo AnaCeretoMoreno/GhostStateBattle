@@ -1,6 +1,3 @@
-
----
-
 # 👻 GhostStateBattle
 
 **Final Build Here:**
@@ -35,5 +32,3 @@ This game humorously reflects today’s housing crisis by exaggerating the lengt
 **GhostStateBattle** turns this struggle into a surreal, fast-paced competition where haunted homes are no longer just scary—they’re *the prize*.
 
 Will you survive the supernatural and outscore your rival, or will you be left... *homeless*?
-
----
