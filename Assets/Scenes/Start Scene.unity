@@ -9197,6 +9197,62 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6382812499809901765, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_fontSize
+      value: 22.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812499809901765, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_fontStyle
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812499809901765, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.5882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812499809901765, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.30922288
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812499809901765, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812499809901765, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812499809901765, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4288040704
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812501178395920, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812501178395920, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.5882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812501178395920, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.54509807
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812501178395920, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812501178395920, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4288020619
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812501178395920, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812501178395921, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
 --- !u!114 &1601771749 stripped

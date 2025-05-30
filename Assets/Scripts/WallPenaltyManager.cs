@@ -8,7 +8,16 @@ public class WallPenaltyManager : MonoBehaviour
     [SerializeField] private float penaltyDuration = 5f;
     [SerializeField] private float blinkFrequency = 5f;
 
+    AudioManager audioManager;
+
+
     private bool isPenalized = false;
+
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     public void StartPenalty()
     {
@@ -21,6 +30,7 @@ public class WallPenaltyManager : MonoBehaviour
     private IEnumerator Penalize()
     {
         isPenalized = true;
+        audioManager.PlaySFX(audioManager.penalize_sound);
 
         if (lightTrigger != null)
             lightTrigger.SetActive(false);

@@ -36,6 +36,13 @@ public class UIManager : MonoBehaviour
 
         switch (sceneName)
         {
+           case "Presentation":
+                titleText?.SetActive(false);
+                startInstructionsText?.SetActive(true);
+                scoreUI?.SetActive(false);
+                gameOverWindow?.SetActive(false);
+                break;
+
             case "Start Scene":
                 titleText?.SetActive(true);
                 startInstructionsText?.SetActive(true);
@@ -51,10 +58,22 @@ public class UIManager : MonoBehaviour
                 break;
 
             case "End Scene":
-                gameOverWindow?.SetActive(true); 
+                gameOverWindow?.SetActive(false); 
                 startInstructionsText?.SetActive(true);
                 scoreUI?.SetActive(false);
                 titleText?.SetActive(false);
+
+                // Obtener el nombre del ganador y mostrarlo
+                string winnerName = PlayerPrefs.GetString("WinnerName", "No Winner");
+                ShowGameOver(winnerName);
+
+                // Reproducir sonido si es necesario
+                AudioManager audioManager = GameObject.FindGameObjectWithTag("Audio")?.GetComponent<AudioManager>();
+                if (audioManager != null)
+                {
+                    audioManager.PlaySFX(audioManager.player_wins);
+                }
+
                 break;
         }
     }

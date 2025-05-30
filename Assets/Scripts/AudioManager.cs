@@ -13,6 +13,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip nomal_spawn;
     public AudioClip special_spawn;
 
+    [Header("-------Audio Player------")]
+    public AudioClip penalize_sound;
+    public AudioClip player_wins;
+
     private void Start()
     {
         musicSource.clip = backgroundMusic;

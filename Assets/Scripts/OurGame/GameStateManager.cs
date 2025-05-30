@@ -17,8 +17,13 @@ public class GameStateManager : MonoBehaviour
 
     private bool gameEnded = false;
 
+    AudioManager audioManager;
+
+
     void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
         if (Instance == null)
             Instance = this;
         else
@@ -51,7 +56,7 @@ public class GameStateManager : MonoBehaviour
 
                 if (player1Score >= winScore)
                 {
-                    EndGameImmediate("Player 1 Wins!");
+                    EndGameImmediate("Player 1 Wins the House!");
                     return;
                 }
             } 
@@ -62,7 +67,7 @@ public class GameStateManager : MonoBehaviour
 
                 if (player2Score >= winScore)
                 {
-                    EndGameImmediate("Player 2 Wins!");
+                    EndGameImmediate("Player 2 Wins the House!");
                     return;
                 }
             } 
@@ -77,13 +82,20 @@ public class GameStateManager : MonoBehaviour
     private void EndGameImmediate(string winnerName)
     {
         gameEnded = true;
-        UIManager.Instance.ShowGameOver(winnerName);
-        StartCoroutine(ReturnToEndScene());
+        //UIManager.Instance.ShowGameOver(winnerName);
+        //StartCoroutine(ReturnToEndScene());
+
+
+        PlayerPrefs.SetString("WinnerName", winnerName); // Guardamos el ganador
+        PlayerPrefs.Save();
+
+        SceneManager.LoadScene("End Scene"); // Cargamos directamente la escena
     }
 
     private IEnumerator ReturnToEndScene()
     {
         yield return new WaitForSeconds(10f); // Espera 10 segundos
+        audioManager.PlaySFX(audioManager.player_wins);
         SceneManager.LoadScene("End Scene");
     }
 
