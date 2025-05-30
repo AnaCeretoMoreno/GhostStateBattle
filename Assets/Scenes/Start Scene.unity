@@ -9226,6 +9226,10 @@ PrefabInstance:
       value: 4288040704
       objectReference: {fileID: 0}
     - target: {fileID: 6382812501178395920, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_text
+      value: GhostStateBattle Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812501178395920, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
       propertyPath: m_fontSize
       value: 18
       objectReference: {fileID: 0}

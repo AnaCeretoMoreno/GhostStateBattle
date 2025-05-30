@@ -15,6 +15,7 @@ public class Ghost : MonoBehaviour
     private Coroutine fadingCoroutine;
 
     private GameObject killer;
+    private bool killer_bool = false;
 
     public int numPoints = 1;
 
@@ -91,11 +92,13 @@ public class Ghost : MonoBehaviour
         }
     }
 
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("PlayerLight") && !isFading)
+        if (other.CompareTag("PlayerLight") && !isFading && !killer_bool)
         {
             killer = other.transform.root.gameObject;
+            killer_bool = true;
             if (fadingCoroutine == null)
             {
                 fadingCoroutine = StartCoroutine(FadeAndDie());
@@ -110,6 +113,7 @@ public class Ghost : MonoBehaviour
             StopCoroutine(fadingCoroutine);
             fadingCoroutine = null;
             ResetTransparency();
+            killer_bool = false;
         }
     }
 
