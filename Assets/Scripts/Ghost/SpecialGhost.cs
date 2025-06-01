@@ -3,99 +3,43 @@ using UnityEngine;
 
 public class SpecialGhost : MonoBehaviour
 {
-    public float wanderSpeed = 2.5f;        // Más rápido
-    public float wanderRadius = 4f;         // Más amplio
     public float fadeDuration = 1f;
+    public int numPoints = 3;
+    public GameObject deathVFXPrefab;
 
-    private Vector3 targetPosition;
     private Renderer ghostRenderer;
     private bool isFading = false;
-
-    private ghostSpawner ghostSpawner;
     private Coroutine fadingCoroutine;
-
     private GameObject killer;
+    private bool isBeingKilled = false;
 
-    public int numPoints = 3;
-
-    public GameObject deathVFXPrefab;
-    AudioManager audioManager;
-
-    private static readonly int IdleState = Animator.StringToHash("Base Layer.idle");
-    private static readonly int MoveState = Animator.StringToHash("Base Layer.move");
-    private static readonly int SurprisedState = Animator.StringToHash("Base Layer.surprised");
-    private static readonly int AttackState = Animator.StringToHash("Base Layer.attack_shift");
-    private static readonly int DissolveState = Animator.StringToHash("Base Layer.dissolve");
-    private static readonly int AttackTag = Animator.StringToHash("Attack");
-
-    private Animator anim;
-
-
-    private Vector3 lastDirection; // Para reflejar dirección al chocar con GhostWall
+    private GhostSpawner ghostSpawner;
+    private GhostMovement ghostMovement;
+    private GhostAnimationController animationController;
+    private AudioManager audioManager;
 
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
-    void Start()
+    private void Start()
     {
         ghostRenderer = GetComponentInChildren<Renderer>();
-        SetNewTargetPosition();
-        StartCoroutine(Wander());
-        anim = GetComponent<Animator>();
-        audioManager.PlaySFX(audioManager.special_spawn);
-        anim.CrossFade(IdleState, 0.1f, 0, 0);
-    }
+        ghostMovement = GetComponent<GhostMovement>();
+        animationController = GetComponent<GhostAnimationController>();
 
-    void Update()
-    {
-        if (!isFading)
-        {
-            MoveGhost();
-        }
-    }
-
-    void MoveGhost()
-    {
-        Vector3 direction = targetPosition - transform.position;
-        lastDirection = direction.normalized;
-
-        if (direction.magnitude > 0.1f)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, wanderSpeed * Time.deltaTime);
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
-            anim.CrossFade(MoveState, 0.1f);
-
-        }
-        else
-        {
-            SetNewTargetPosition();
-        }
-    }
-
-    void SetNewTargetPosition()
-    {
-        Vector3 randomDirection = Random.insideUnitSphere * wanderRadius;
-        randomDirection.y = 0;
-        targetPosition = transform.position + randomDirection;
-    }
-
-    private IEnumerator Wander()
-    {
-        while (!isFading)
-        {
-            yield return new WaitForSeconds(Random.Range(5f, 10f));
-            SetNewTargetPosition();
-        }
+        audioManager.PlaySFX(audioManager.nomal_spawn);
+        animationController.PlayIdle();
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("PlayerLight") && !isFading)
+        if (other.CompareTag("PlayerLight") && !isFading && !isBeingKilled)
         {
             killer = other.transform.root.gameObject;
+            isBeingKilled = true;
+
             if (fadingCoroutine == null)
             {
                 fadingCoroutine = StartCoroutine(FadeAndDie());
@@ -110,16 +54,19 @@ public class SpecialGhost : MonoBehaviour
             StopCoroutine(fadingCoroutine);
             fadingCoroutine = null;
             ResetTransparency();
+            isBeingKilled = false;
         }
     }
 
     private IEnumerator FadeAndDie()
     {
         isFading = true;
-        anim.CrossFade(SurprisedState, 0.1f);
-        yield return new WaitForSeconds(0.5f); // tiempo para mostrar la reacción
+        ghostMovement.StopMovement();
 
-        anim.CrossFade(DissolveState, 0.1f);
+        animationController.PlaySurprised();
+        yield return new WaitForSeconds(0.5f);
+
+        animationController.PlayDissolve();
 
         float elapsed = 0f;
         Material mat = ghostRenderer.material;
@@ -148,7 +95,7 @@ public class SpecialGhost : MonoBehaviour
             ghostSpawner.RemoveGhostFromList(gameObject);
         }
 
-        audioManager.PlaySFX(audioManager.special_death);
+        audioManager.PlaySFX(audioManager.normal_death);
 
         Destroy(gameObject);
     }
@@ -156,25 +103,26 @@ public class SpecialGhost : MonoBehaviour
     private void ResetTransparency()
     {
         isFading = false;
+
         if (ghostRenderer != null)
         {
             Color col = ghostRenderer.material.color;
             ghostRenderer.material.color = new Color(col.r, col.g, col.b, 1f);
         }
-    }
 
-    public void SetSpawner(ghostSpawner spawner)
-    {
-        ghostSpawner = spawner;
+        ghostMovement.enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("GhostWall"))
         {
-            // Rebote simple: mover en dirección opuesta
-            Vector3 rebound = -lastDirection.normalized * wanderRadius;
-            targetPosition = transform.position + rebound;
+            ghostMovement.ReboundFromWall();
         }
+    }
+
+    public void SetSpawner(GhostSpawner spawner)
+    {
+        ghostSpawner = spawner;
     }
 }

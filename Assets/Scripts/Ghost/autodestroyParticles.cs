@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class autodestroyParticles : MonoBehaviour
+public class AutodestroyParticles : MonoBehaviour
 {
     void Start()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ghostSpawner : MonoBehaviour
+public class GhostSpawner : MonoBehaviour
 {
     public bool canSpawn = true;
     public GameObject ghostPrefab;
