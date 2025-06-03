@@ -12,6 +12,14 @@ public class PresentationScene : MonoBehaviour
     private bool countdownStarted = false;
     public float requiredTime = 2f;
 
+    private AudioManager audioManager;
+
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     private void Update()
     {
         if (player1OnPlatform)
@@ -40,6 +48,7 @@ public class PresentationScene : MonoBehaviour
     {
         if (other.gameObject == player1)
         {
+            audioManager.PlaySFX(audioManager.rug_sound);
             player1OnPlatform = true;
         }
     }

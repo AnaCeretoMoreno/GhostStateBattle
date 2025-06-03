@@ -6253,7 +6253,7 @@ MonoBehaviour:
   backgroundMusic: {fileID: 8300000, guid: a68c680e286b4ec458d8a840b946268e, type: 3}
   normal_death: {fileID: 8300000, guid: 6fa439d0539dcf04f89f7b90d25054b4, type: 3}
   special_death: {fileID: 8300000, guid: 3642dff4c00bfd349b46465c3c9daf58, type: 3}
-  nomal_spawn: {fileID: 8300000, guid: 4f55b63c06cb4b94c8734bec20314107, type: 3}
+  normal_spawn: {fileID: 8300000, guid: 4f55b63c06cb4b94c8734bec20314107, type: 3}
   special_spawn: {fileID: 8300000, guid: 564304a020d5d764e9789fb6ca31fec7, type: 3}
   penalize_sound: {fileID: 8300000, guid: 784b7b00f8881a6489bc1f94f0b19705, type: 3}
   player_wins: {fileID: 8300000, guid: 9b9b2032583b71940ad43a4069648061, type: 3}
@@ -6908,7 +6908,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051717209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 0, z: 36.2}
+  m_LocalPosition: {x: 0.6, y: 0, z: 31.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207137109}

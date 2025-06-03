@@ -16,7 +16,7 @@ public class GhostAnimationController : MonoBehaviour
 
     public void PlayIdle()
     {
-        anim.CrossFade(IdleState, 0.1f);
+        anim.CrossFade(IdleState, 0.1f, 0, 0);
     }
 
     public void PlayMove()

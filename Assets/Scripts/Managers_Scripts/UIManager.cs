@@ -37,14 +37,14 @@ public class UIManager : MonoBehaviour
         switch (sceneName)
         {
            case "Presentation":
-                titleText?.SetActive(false);
+                titleText?.SetActive(true);
                 startInstructionsText?.SetActive(true);
                 scoreUI?.SetActive(false);
                 gameOverWindow?.SetActive(false);
                 break;
 
             case "Start Scene":
-                titleText?.SetActive(true);
+                titleText?.SetActive(false);
                 startInstructionsText?.SetActive(true);
                 scoreUI?.SetActive(false);
                 gameOverWindow?.SetActive(false);

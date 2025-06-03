@@ -29,7 +29,7 @@ public class Ghost : MonoBehaviour
         ghostMovement = GetComponent<GhostMovement>();
         animationController = GetComponent<GhostAnimationController>();
 
-        audioManager.PlaySFX(audioManager.nomal_spawn);
+        audioManager.PlaySFX(audioManager.normal_spawn);
         animationController.PlayIdle();
     }
 
