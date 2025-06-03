@@ -14,9 +14,20 @@ public class StartGame : MonoBehaviour
     private bool countdownStarted = false;
     public float requiredTime = 2f;
 
+    private bool doorClosed = false;
+    private ManagePrincipalDoor managePrincipalDoor;
+
+
+
+    private void Start()
+    {
+        managePrincipalDoor = GetComponent<ManagePrincipalDoor>();
+
+    }
+
     private void Update()
     {
-        if (player1OnPlatform && player2OnPlatform)
+        if (player1OnPlatform && player2OnPlatform && !doorClosed)
         {
             if (!countdownStarted)
             {
@@ -28,7 +39,8 @@ public class StartGame : MonoBehaviour
 
             if (timer >= requiredTime)
             {
-                SceneManager.LoadScene("Game");
+                StartCoroutine(CloseDoorAndLoadScene());
+                doorClosed = true;
             }
         }
         else
@@ -36,6 +48,13 @@ public class StartGame : MonoBehaviour
             countdownStarted = false;
             timer = 0f;
         }
+    }
+
+    private IEnumerator CloseDoorAndLoadScene()
+    {
+        managePrincipalDoor.CloseDoor();
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("Game");
     }
 
     private void OnTriggerEnter(Collider other)

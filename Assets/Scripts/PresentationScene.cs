@@ -12,6 +12,9 @@ public class PresentationScene : MonoBehaviour
     private bool countdownStarted = false;
     public float requiredTime = 2f;
 
+    private bool doorOpened = false;
+    private ManagePrincipalDoor managePrincipalDoor;
+
     private AudioManager audioManager;
 
 
@@ -20,9 +23,15 @@ public class PresentationScene : MonoBehaviour
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
+    private void Start()
+    {
+        managePrincipalDoor = GetComponent<ManagePrincipalDoor>();
+
+    }
+
     private void Update()
     {
-        if (player1OnPlatform)
+        if (player1OnPlatform && !doorOpened)
         {
             if (!countdownStarted)
             {
@@ -34,7 +43,8 @@ public class PresentationScene : MonoBehaviour
 
             if (timer >= requiredTime)
             {
-                SceneManager.LoadScene("Start Scene");
+                StartCoroutine(OpenDoorAndLoadScene());
+                doorOpened = true; 
             }
         }
         else
@@ -43,6 +53,14 @@ public class PresentationScene : MonoBehaviour
             timer = 0f;
         }
     }
+
+    private IEnumerator OpenDoorAndLoadScene()
+    {
+        managePrincipalDoor.OpenDoor();
+        yield return new WaitForSeconds(1.5f); 
+        SceneManager.LoadScene("Start Scene");
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {

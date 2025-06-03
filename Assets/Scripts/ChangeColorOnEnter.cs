@@ -1,30 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
-
-public class ChangeColorOnEnter : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ChangeColorOnEnter : MonoBehaviour
 {
-    public MeshRenderer model; // A reference to the mesh renderer that needs its color changed.
-    public Color normalColor; // The default color of the model.
-    public Color hoverColor; // The color that should be applied on the model when the pointer is hovering over it.
+    public MeshRenderer model;
+    public Color normalColor = Color.white;
+    public Color activeColor = new Color(1f, 0.9f, 0.6f);
+    public GameObject player1;
+    public GameObject player2;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        model.material.color = normalColor;
+        // Solo activar si NO estamos en la escena "Game"
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            enabled = false;
+            return;
+        }
 
+        if (model != null)
+        {
+            model.material.color = normalColor;
+        }
     }
 
-    public void OnPointerEnter(PointerEventData eventData) // This is another method that needs to have a single PointerEventData variable as its parameter. It gets called when the pointer enters the GameObject and changes the color of the model's material.
+    private void OnTriggerEnter(Collider other)
     {
-        model.material.color = hoverColor;
+        if (other.gameObject == player1 && model != null)
+        {
+            model.material.color = activeColor;
+        }
+        else if (other.gameObject == player2 && model != null)
+        {
+            model.material.color = activeColor;
+        }
+
     }
 
-    public void OnPointerExit(PointerEventData eventData) // Called when the pointer exits the GameObject. This resets the color of the material to its normal value.
+    private void OnTriggerExit(Collider other)
     {
-        model.material.color = normalColor;
+        if (other.gameObject == player1 && model != null)
+        {
+            model.material.color = normalColor;
+        }
+        else if (other.gameObject == player2 && model != null)
+        {
+            model.material.color = normalColor;
+        }
     }
-
 }

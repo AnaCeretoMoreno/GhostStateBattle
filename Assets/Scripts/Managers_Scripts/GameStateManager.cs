@@ -16,8 +16,11 @@ public class GameStateManager : MonoBehaviour
     public GameObject player2;
 
     private bool gameEnded = false;
+    private ManagePrincipalDoor managePrincipalDoor;
 
     AudioManager audioManager;
+
+    private bool doorOpened = false;
 
 
     void Awake()
@@ -30,14 +33,28 @@ public class GameStateManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        managePrincipalDoor = GetComponent<ManagePrincipalDoor>();
+
+    }
+
     void Update()
     {
         if (gameEnded) return;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !doorOpened)
         {
-            SceneManager.LoadScene("Start Scene");
+            StartCoroutine(OpenDoorAndLoadSceneStart());
+            doorOpened = true;
         }
+    }
+
+    private IEnumerator OpenDoorAndLoadSceneStart()
+    {
+        managePrincipalDoor.OpenDoor();
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("Start Scene");
     }
 
     public void AddScore(GameObject player, int amount)
@@ -82,22 +99,25 @@ public class GameStateManager : MonoBehaviour
     private void EndGameImmediate(string winnerName)
     {
         gameEnded = true;
-        //UIManager.Instance.ShowGameOver(winnerName);
-        //StartCoroutine(ReturnToEndScene());
-
 
         PlayerPrefs.SetString("WinnerName", winnerName); // Guardamos el ganador
         PlayerPrefs.Save();
 
-        SceneManager.LoadScene("End Scene"); // Cargamos directamente la escena
+        if (!doorOpened)
+        {
+            StartCoroutine(OpenDoorAndLoadSceneEnd());
+            doorOpened = true;
+        }
+
     }
 
-    private IEnumerator ReturnToEndScene()
+    private IEnumerator OpenDoorAndLoadSceneEnd()
     {
-        yield return new WaitForSeconds(10f); // Espera 10 segundos
-        audioManager.PlaySFX(audioManager.player_wins);
+        managePrincipalDoor.OpenDoor();
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("End Scene");
     }
+
 
     public int GetPlayer1Score() => player1Score;
     public int GetPlayer2Score() => player2Score;
