@@ -68,8 +68,17 @@ public class GhostMovement : MonoBehaviour
             StopCoroutine(wanderCoroutine);
     }
 
+    public void ResumeMovement()
+    {
+        isStopped = false;
+        wanderCoroutine = StartCoroutine(WanderRoutine());
+    }
+
     public void ReboundFromWall()
     {
-        targetPosition = transform.position - lastDirection.normalized * wanderRadius;
+        Vector3 rebound = -lastDirection.normalized * wanderRadius;
+        targetPosition = transform.position + rebound;
     }
+
+
 }

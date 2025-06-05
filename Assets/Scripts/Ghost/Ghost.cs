@@ -111,6 +111,8 @@ public class Ghost : MonoBehaviour
         }
 
         ghostMovement.enabled = true;
+        ghostMovement.ResumeMovement(); 
+
     }
 
     private void OnTriggerEnter(Collider other)

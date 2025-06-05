@@ -3699,7 +3699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   calibrationUI: {fileID: 220600117}
   trackingInterface: {fileID: 220600112}
-  enableTracking: 1
+  enableTracking: 0
   numberOfPlayers: 2
   numberOfBaseStations: 4
   enableRotation: 0
@@ -6352,6 +6352,7 @@ MonoBehaviour:
   winScore: 20
   player1: {fileID: 1440896347}
   player2: {fileID: 1471923275}
+  managePrincipalDoor: {fileID: 2049601066}
 --- !u!4 &1046383620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7067593843637656600, guid: e282bff0336242d4d9a35fcae756ece4, type: 3}
@@ -7792,7 +7793,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440896347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bb442334999fb84487442a2b692a37f, type: 3}
   m_Name: 
@@ -7806,7 +7807,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440896347}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c92a06c6a7f923e4795730e51b4d7c41, type: 3}
   m_Name: 
@@ -8189,6 +8190,7 @@ GameObject:
   - component: {fileID: 1471923276}
   - component: {fileID: 1471923280}
   - component: {fileID: 1471923281}
+  - component: {fileID: 1471923282}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -8227,8 +8229,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 893099cddddc5b445885099910df7c32, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8280,7 +8281,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471923275}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bb442334999fb84487442a2b692a37f, type: 3}
   m_Name: 
@@ -8301,6 +8302,19 @@ CapsuleCollider:
   m_Height: 51.13
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1471923282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471923275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a819a5288b9dc5a49b49a412ff587432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
 --- !u!1 &1480790853
 GameObject:
   m_ObjectHideFlags: 0
@@ -9552,6 +9566,18 @@ PrefabInstance:
     - target: {fileID: 6382812499809901765, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4288040704
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812501178395920, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_fontSize
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812501178395920, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382812501178395921, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 675331cc3c8ca2449878e04f4fbe16fa, type: 3}

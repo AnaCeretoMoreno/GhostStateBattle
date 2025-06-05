@@ -16,7 +16,7 @@ public class GameStateManager : MonoBehaviour
     public GameObject player2;
 
     private bool gameEnded = false;
-    private ManagePrincipalDoor managePrincipalDoor;
+    public ManagePrincipalDoor managePrincipalDoor;
 
     AudioManager audioManager;
 
@@ -35,8 +35,8 @@ public class GameStateManager : MonoBehaviour
 
     private void Start()
     {
-        managePrincipalDoor = GetComponent<ManagePrincipalDoor>();
-
+        if (managePrincipalDoor == null)
+            Debug.LogError("ManagePrincipalDoor not found in the scene!");
     }
 
     void Update()

@@ -2244,6 +2244,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 738411863419942453, guid: 366ef2e3b1177de4181c91ee265103a6, type: 3}
   m_PrefabInstance: {fileID: 252771362}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &252771364 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 738411861802106160, guid: 366ef2e3b1177de4181c91ee265103a6, type: 3}
+  m_PrefabInstance: {fileID: 252771362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &260749774
 GameObject:
   m_ObjectHideFlags: 0
@@ -4245,7 +4250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   calibrationUI: {fileID: 220600117}
   trackingInterface: {fileID: 220600112}
-  enableTracking: 1
+  enableTracking: 0
   numberOfPlayers: 2
   numberOfBaseStations: 4
   enableRotation: 0
@@ -5897,7 +5902,7 @@ PrefabInstance:
       objectReference: {fileID: 1471923275}
     - target: {fileID: 1105955017315397243, guid: 1cb29328f4f623040946785f48e2c915, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1105955017315397244, guid: 1cb29328f4f623040946785f48e2c915, type: 3}
       propertyPath: player1
@@ -5970,6 +5975,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8649888303738215741, guid: 1cb29328f4f623040946785f48e2c915, type: 3}
   m_PrefabInstance: {fileID: 838023249}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &838023251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8725259500184016312, guid: 1cb29328f4f623040946785f48e2c915, type: 3}
+  m_PrefabInstance: {fileID: 838023249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &838023252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838023251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86f14d9a1131854ea725691e2e6cb5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door1: {fileID: 252771364}
+  door2: {fileID: 260749775}
+  animationDuration: 0.5
 --- !u!1 &845341969
 GameObject:
   m_ObjectHideFlags: 0
@@ -6962,9 +6987,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea456f2a65dc894f917f7ee4dae2e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winScore: 20
+  winScore: 4
   player1: {fileID: 1440896347}
   player2: {fileID: 1471923275}
+  managePrincipalDoor: {fileID: 838023252}
 --- !u!4 &1046383620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7067593843637656600, guid: e282bff0336242d4d9a35fcae756ece4, type: 3}
@@ -8718,7 +8744,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440896347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bb442334999fb84487442a2b692a37f, type: 3}
   m_Name: 
@@ -8732,7 +8758,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440896347}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c92a06c6a7f923e4795730e51b4d7c41, type: 3}
   m_Name: 
@@ -9107,6 +9133,7 @@ GameObject:
   - component: {fileID: 1471923280}
   - component: {fileID: 1471923282}
   - component: {fileID: 1471923283}
+  - component: {fileID: 1471923281}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -9197,13 +9224,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471923275}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bb442334999fb84487442a2b692a37f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   q: {x: 0, y: 0, z: 0, w: 0}
   manual: 0
+--- !u!114 &1471923281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471923275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a819a5288b9dc5a49b49a412ff587432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
 --- !u!54 &1471923282
 Rigidbody:
   m_ObjectHideFlags: 0
