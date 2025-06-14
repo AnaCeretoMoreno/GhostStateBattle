@@ -11659,7 +11659,9 @@ MonoBehaviour:
   plane: {fileID: 530153862}
   blend: {fileID: 185534725}
   backgroundColor: {r: 1, g: 1, b: 1, a: 0}
+  UseOverlapFile: 1
   percentageOfCameraOverlap: 15
+  overlapGetFilePath: D:/Calibration/Overlap
 --- !u!1 &1979219559
 GameObject:
   m_ObjectHideFlags: 0

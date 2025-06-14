@@ -3605,7 +3605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501921032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.7, y: 0, z: 31.8}
+  m_LocalPosition: {x: -22.41898, y: 0, z: 23.043446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207137109}
@@ -4480,7 +4480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665650809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.5, y: 0, z: -42.4}
+  m_LocalPosition: {x: -12.5, y: 0, z: -35.956554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207137109}
@@ -5443,7 +5443,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 779444821}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.4, y: 0, z: 2.6}
+  m_LocalPosition: {x: 37.58102, y: 0, z: 2.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207137109}
@@ -5473,7 +5473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 779788035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 46.1, y: 0, z: 28.5}
+  m_LocalPosition: {x: 38.58102, y: 0, z: 28.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207137109}
@@ -6258,7 +6258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873114731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.7, y: 0, z: -34.7}
+  m_LocalPosition: {x: 39.58102, y: 0, z: -34.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207137109}
@@ -6603,7 +6603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974527649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.7, y: 0, z: -42}
+  m_LocalPosition: {x: 4.5810194, y: 0, z: -34.956554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207137109}
@@ -7073,7 +7073,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051717209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 0, z: 31.9}
+  m_LocalPosition: {x: 0.6, y: 0, z: 29.043447}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207137109}
@@ -7959,7 +7959,7 @@ MonoBehaviour:
   - {fileID: 1542007876}
   - {fileID: 2145278567}
   - {fileID: 501921033}
-  timeBetweenSpawns: 5
+  timeBetweenSpawns: 2
   specialGhostSpawnInterval: 30
 --- !u!4 &1193913623
 Transform:
@@ -8444,7 +8444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318798765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -38.3, y: 0, z: 28.5}
+  m_LocalPosition: {x: -31.41898, y: 0, z: 24.043446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207137109}
@@ -9961,7 +9961,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542007875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -38.4, y: 0, z: -19.7}
+  m_LocalPosition: {x: -35.41898, y: 0, z: -19.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207137109}
@@ -11573,7 +11573,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796599492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.1, y: 0, z: 14.3}
+  m_LocalPosition: {x: -30.41898, y: 0, z: 10.043447}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207137109}
@@ -11603,7 +11603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805608506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9, y: 0, z: -14.1}
+  m_LocalPosition: {x: -0.4189806, y: 0, z: -14.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207137109}
@@ -13003,7 +13003,9 @@ MonoBehaviour:
   plane: {fileID: 530153862}
   blend: {fileID: 185534725}
   backgroundColor: {r: 1, g: 1, b: 1, a: 0}
+  UseOverlapFile: 1
   percentageOfCameraOverlap: 15
+  overlapGetFilePath: D:/Calibration/Overlap
 --- !u!1 &1979219559
 GameObject:
   m_ObjectHideFlags: 0
@@ -14019,7 +14021,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145278566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.8, y: 0, z: -38.7}
+  m_LocalPosition: {x: -32.41898, y: 0, z: -38.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207137109}
