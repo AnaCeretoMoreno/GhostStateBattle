@@ -17,6 +17,7 @@ public class StartGame : MonoBehaviour
     private bool doorClosed = false;
     private ManagePrincipalDoor managePrincipalDoor;
 
+    public DirectionalLightController lightController; 
 
 
     private void Start()
@@ -53,7 +54,8 @@ public class StartGame : MonoBehaviour
     private IEnumerator CloseDoorAndLoadScene()
     {
         managePrincipalDoor.CloseDoor();
-        yield return new WaitForSeconds(1.5f);
+        lightController.TurnOffLight();
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Game");
     }
 

@@ -3699,7 +3699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   calibrationUI: {fileID: 220600117}
   trackingInterface: {fileID: 220600112}
-  enableTracking: 0
+  enableTracking: 1
   numberOfPlayers: 2
   numberOfBaseStations: 4
   enableRotation: 0
@@ -3906,6 +3906,7 @@ GameObject:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
   - component: {fileID: 705507996}
+  - component: {fileID: 705507997}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -4111,6 +4112,18 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+--- !u!114 &705507997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abf26bf617e5ce47a293da691c13516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &712647629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6353,6 +6366,7 @@ MonoBehaviour:
   player1: {fileID: 1440896347}
   player2: {fileID: 1471923275}
   managePrincipalDoor: {fileID: 2049601066}
+  lightController: {fileID: 705507997}
 --- !u!4 &1046383620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7067593843637656600, guid: e282bff0336242d4d9a35fcae756ece4, type: 3}
@@ -7793,7 +7807,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440896347}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bb442334999fb84487442a2b692a37f, type: 3}
   m_Name: 
@@ -7807,7 +7821,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440896347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c92a06c6a7f923e4795730e51b4d7c41, type: 3}
   m_Name: 
@@ -8281,7 +8295,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471923275}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bb442334999fb84487442a2b692a37f, type: 3}
   m_Name: 
@@ -8309,7 +8323,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471923275}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a819a5288b9dc5a49b49a412ff587432, type: 3}
   m_Name: 
@@ -13908,6 +13922,18 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 1471923275}
+    - target: {fileID: 1105955017315397243, guid: 1cb29328f4f623040946785f48e2c915, type: 3}
+      propertyPath: activeColor.b
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105955017315397243, guid: 1cb29328f4f623040946785f48e2c915, type: 3}
+      propertyPath: activeColor.g
+      value: 0.9019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105955017315397243, guid: 1cb29328f4f623040946785f48e2c915, type: 3}
+      propertyPath: activeColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1105955017315397244, guid: 1cb29328f4f623040946785f48e2c915, type: 3}
       propertyPath: player1
       value: 

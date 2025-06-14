@@ -58,7 +58,7 @@ public class Ghost : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeAndDie()
+    private IEnumerator FadeAndDie(bool evaporating = false)
     {
         isFading = true;
         ghostMovement.StopMovement();
@@ -85,7 +85,7 @@ public class Ghost : MonoBehaviour
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
         }
 
-        if (killer != null)
+        if (!evaporating && killer != null)
         {
             GameStateManager.Instance.AddScore(killer, numPoints);
         }
@@ -95,10 +95,14 @@ public class Ghost : MonoBehaviour
             ghostSpawner.RemoveGhostFromList(gameObject);
         }
 
-        audioManager.PlaySFX(audioManager.normal_death);
+        if (!evaporating)
+        {
+            audioManager.PlaySFX(audioManager.normal_death);
+        }
 
         Destroy(gameObject);
     }
+
 
     private void ResetTransparency()
     {
@@ -126,5 +130,14 @@ public class Ghost : MonoBehaviour
     public void SetSpawner(GhostSpawner spawner)
     {
         ghostSpawner = spawner;
+    }
+
+    // final of the game
+    public void TriggerEvaporation()
+    {
+        if (!isFading && !isBeingKilled && fadingCoroutine == null)
+        {
+            StartCoroutine(FadeAndDie(evaporating: true));
+        }
     }
 }

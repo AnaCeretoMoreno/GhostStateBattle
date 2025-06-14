@@ -14,12 +14,6 @@ public class ChangeColorOnEnter : MonoBehaviour
 
     void Start()
     {
-        // Solo activar si NO estamos en la escena "Game"
-        if (SceneManager.GetActiveScene().name == "Game")
-        {
-            enabled = false;
-            return;
-        }
 
         if (model != null)
         {

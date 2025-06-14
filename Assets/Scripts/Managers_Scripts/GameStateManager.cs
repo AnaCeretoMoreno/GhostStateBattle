@@ -18,6 +18,9 @@ public class GameStateManager : MonoBehaviour
     private bool gameEnded = false;
     public ManagePrincipalDoor managePrincipalDoor;
 
+    public DirectionalLightController lightController;
+
+
     AudioManager audioManager;
 
     private bool doorOpened = false;
@@ -53,7 +56,7 @@ public class GameStateManager : MonoBehaviour
     private IEnumerator OpenDoorAndLoadSceneStart()
     {
         managePrincipalDoor.OpenDoor();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Start Scene");
     }
 
@@ -114,7 +117,17 @@ public class GameStateManager : MonoBehaviour
     private IEnumerator OpenDoorAndLoadSceneEnd()
     {
         managePrincipalDoor.OpenDoor();
-        yield return new WaitForSeconds(1.5f);
+        Ghost[] allGhosts = FindObjectsOfType<Ghost>();
+
+        foreach (Ghost ghost in allGhosts)
+        {
+            ghost.TriggerEvaporation();
+        }
+        yield return new WaitForSeconds(2f);
+
+        lightController.TurnOnLight();
+
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("End Scene");
     }
 
