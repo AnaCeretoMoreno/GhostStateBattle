@@ -7959,7 +7959,7 @@ MonoBehaviour:
   - {fileID: 1542007876}
   - {fileID: 2145278567}
   - {fileID: 501921033}
-  timeBetweenSpawns: 2
+  timeBetweenSpawns: 3
   specialGhostSpawnInterval: 30
 --- !u!4 &1193913623
 Transform:
